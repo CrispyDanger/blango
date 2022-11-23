@@ -40,6 +40,7 @@ class Dev(Configuration):
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
 
+  
   # Application definition
 
   INSTALLED_APPS = [
@@ -50,12 +51,15 @@ class Dev(Configuration):
       'django.contrib.messages',
       'django.contrib.staticfiles',
       #local
+      'blango_auth',
       'blog',
       #global
       'crispy_forms',
       'crispy_bootstrap5',
       'debug_toolbar',
   ]
+
+  AUTH_USER_MODEL = "blango_auth.User"
 
   MIDDLEWARE = [
       'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -188,3 +192,4 @@ class Dev(Configuration):
       'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
       'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
   ]
+
